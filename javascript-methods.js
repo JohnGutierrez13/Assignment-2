@@ -67,8 +67,26 @@ Array.prototype.myEach = function(callbackFn) {
   
 
   // INCLUDES //
-  Array.prototype.myIncludes = function() {
-    // Place your code here.
+  Array.prototype.myIncludes = function(searchElement, startIndex = 0) {
+        // can take up to 2 input parameters:
+        // searchElement
+        // searchElement, fromIndex
+    if (startIndex < 0)
+    {
+        startIndex = this.length + startIndex;
+    }
+    if(startIndex >= this.length || startIndex < 0)
+    {
+        return false;
+    }
+    for(i = startIndex; i < this.length; i++) // "this" keyword refers to the array being called
+    {
+        if(this[i] === searchElement) //comparing values from array and input parameter
+        {
+            return true; //if values match return true
+        }
+    }
+    return false; //if values do not match return false 
   };
   
 
