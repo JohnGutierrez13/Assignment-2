@@ -44,8 +44,25 @@ Array.prototype.myEach = function(callbackFn) {
   
 
   // REDUCE //
-  Array.prototype.myReduce = function() {
-    // Place your code here.
+  Array.prototype.myReduce = function(callback, initialValue) {
+    if (initialValue === undefined) {
+      acc = this[0]; // if initial value not assigned take index 0 as initial
+      startAtIndex = 1; //Iteration starts here index 1
+    }
+    else
+    {
+     acc = initialValue; // if initial value assigned 
+     startAtIndex = 0; // Iteration starts here index 0
+    }
+    for (i = startAtIndex; i < this.length; i++) { // "this" keyword refers to the array being called
+      value = this[i];
+        // callbackFn can take 4 input parameters:
+        // previousValue
+        // previousValue, currentValue
+        // previousValue, currentValue, currentIndex, array (this)
+      acc = callback(acc, value, i, this); //Saving single value as result in acc
+    }
+    return acc;  //result is "console.log(acc)"
   };
   
 
