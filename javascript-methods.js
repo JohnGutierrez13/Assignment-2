@@ -86,7 +86,7 @@ Array.prototype.myEach = function(callbackFn) {
             return true; //if values match return true
         }
     }
-    return false; //if values do not match return false
+    return false; //if values do not match return false 
   };
   
 
