@@ -9,11 +9,22 @@ Array.prototype.myEach = function(callbackFn) {
         callbackFn(this[i], i, this);   // callbackFn is "console.log(x,i,myArray)" 
     }
   };
+
   
   // MAP //
-  Array.prototype.myMap = function() {
-    // Place your code here.
+  Array.prototype.myMap = function(callback) {
+    const result = [];  // declaring array type const to store result
+    for (i = 0; i < this.length; i++) {   // "this" keyword refers to the array being called.
+      value = this[i];  // saving value of each location (index) after iterations
+        // callbackFn can take up to 3 input parameters:
+        // element
+        // element, index
+        // element, index, array
+      result[i] = callback(value, index, array);  // constructing new array with each element being the result of the callback function
+    }
+    return result; // result is "console.log(element,index,array)"
   };
+
   
   // SOME //
   Array.prototype.mySome = function() {
