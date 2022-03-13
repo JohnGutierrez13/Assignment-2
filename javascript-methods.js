@@ -27,25 +27,40 @@ Array.prototype.myEach = function(callbackFn) {
 
   
   // SOME //
-  Array.prototype.mySome = function() {
-    // Place your code here.
+  Array.prototype.mySome = function(callback) {
+
+    for (let i = 0; i < this.length; i++) { // "this" keyword refers to the array being called.
+      const value = this[i]; // declaring array type const and saving value of each location (index) after iterations
+      // callbackFn can take up to 3 input parameters:
+        // element
+        // element, index
+        // element, index, array
+      if (callback(value, i, this)) {  // if values match print true
+        return true;
+      }
+    }
+    return false; // if values does not match print false
   };
   
+
   // REDUCE //
   Array.prototype.myReduce = function() {
     // Place your code here.
   };
   
+
   // INCLUDES //
   Array.prototype.myIncludes = function() {
     // Place your code here.
   };
   
+
   // INDEXOF //
   Array.prototype.myIndexOf = function() {
     // Place your code here.
   };
   
+
   // PUSH //
   Array.prototype.myPush = function(...args) {  // Use rest parameter to accept any number of input arguments
     let args_index = 0;  // Index of new element
@@ -58,16 +73,19 @@ Array.prototype.myEach = function(callbackFn) {
     return this.length;  // Return new length of "this" array
   };
   
+
   // LASTINDEXOF //
   Array.prototype.myLastIndexOf = function() {
     // Place your code here.
   };
   
+
   // KEYS //
   Object.myKeys = function() {
     // Place your code here.
   };
   
+
   // VALUES //
   Object.myValues = function() {
     // Place your code here.
