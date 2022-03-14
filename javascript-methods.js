@@ -91,9 +91,27 @@ Array.prototype.myEach = function(callbackFn) {
   
 
   // INDEXOF //
-  Array.prototype.myIndexOf = function() {
-    // Place your code here.
-  };
+  Array.prototype.myIndexOf = function(searchElement, startIndex = 0) {
+        // can take up to 2 input parameters:
+        // searchElement
+        // searchElement, fromIndex
+    if (startIndex < 0) //if out of lower bound
+    {
+        startIndex = this.length + startIndex;
+    }
+    if(startIndex > this.length || startIndex < 0) //if out of lower and upper bounds
+    {
+        return -1; //if value is not found in array print -1
+    }
+    for(i = startIndex; i < this.length; i++) // "this" keyword refers to the array being called
+    {
+        if(this[i] === searchElement) //comparing parameters and actual values
+        {
+            return i; //if found print -1 
+        }
+    }
+    return -1; //if not found 1
+};
   
 
   // PUSH //
