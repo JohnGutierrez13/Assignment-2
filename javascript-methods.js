@@ -105,12 +105,12 @@ Array.prototype.myEach = function(callbackFn) {
     }
     for(i = startIndex; i < this.length; i++) // "this" keyword refers to the array being called
     {
-        if(this[i] === searchElement) //comparing parameters and actual values
+        if(this[i] === searchElement) //comparing parameters and actual values indexes
         {
-            return i; //if found print -1 
+            return i; //if found print index of 
         }
     }
-    return -1; //if not found 1
+    return -1; //if not found print -1
 };
   
 
