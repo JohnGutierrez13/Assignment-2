@@ -128,8 +128,30 @@ Array.prototype.myEach = function(callbackFn) {
   
 
   // LASTINDEXOF //
-  Array.prototype.myLastIndexOf = function() {
-    // Place your code here.
+  Array.prototype.myLastIndexOf = function(searchElement, startIndex = this.length-1) {
+        // can take up to 2 input parameters:
+        // searchElement
+        // searchElement, fromIndex
+    if (startIndex < 0) //if out of lower bound
+    {
+        startIndex = this.length + startIndex;
+    }
+    if(startIndex < 0) //if out of lower bound
+    {
+        return -1; //if out of lower bound/not present print -1
+    }
+    else if(startIndex > this.length)
+    {
+        startIndex = this.length;
+    }
+    for(i = startIndex; i >= 0; i--) // "this" keyword refers to the array being called
+    {
+        if(this[i] === searchElement) //comparing parameters and actual values indexes
+        {
+            return i; //if found print last index of
+        }
+    }
+    return -1; //if not found print -1
   };
   
 
