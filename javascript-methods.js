@@ -162,6 +162,15 @@ Array.prototype.myEach = function(callbackFn) {
   
 
   // VALUES //
-  Object.myValues = function() {
-    // Place your code here.
-  };
+  Object.myValues = function(obj) {  
+        // take 1 parameter:
+        // obj
+    if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
+       throw new TypeError('Object.myKeys called on non-object');
+}
+     var result = [], prop;
+     for (prop in obj) { //if value is present in object
+         result.push(obj[prop]); //then push into obj result
+     }
+     return result; //result being printed
+ };
